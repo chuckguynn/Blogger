@@ -4,15 +4,13 @@ class Article < ActiveRecord::Base
   has_many :comments
   has_many :taggings
   has_many :tags, :through => :taggings
-  
+  attr_accessor :image_file_name
   has_attached_file :image
   attr_accessible :image
 
  def tag_list
-  self.tags.collect do |tag|
-    tag.name
-  end.join(", ")
- end
+    return self.tags.join(", ")
+  end
 
   def tag_list=(tags_string)
     self.taggings.destroy_all
