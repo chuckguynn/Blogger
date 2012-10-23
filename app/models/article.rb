@@ -1,12 +1,11 @@
 class Article < ActiveRecord::Base
-  attr_accessible :title, :body
-  attr_accessible :tag_list
+  attr_accessible :title, :body, :tag_list, :image
+  
   has_many :comments
   has_many :taggings
   has_many :tags, :through => :taggings
-  attr_accessor :image_file_name
+  
   has_attached_file :image
-  attr_accessible :image
 
  def tag_list
     return self.tags.join(", ")

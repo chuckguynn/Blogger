@@ -40,3 +40,5 @@ gem 'jquery-rails'
 gem 'paperclip'
 
 gem 'haml-rails'
+
+gem 'sorcery'
